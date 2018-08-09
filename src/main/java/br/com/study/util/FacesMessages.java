@@ -1,11 +1,12 @@
 package br.com.study.util;
 
+import java.io.Serializable;
 import javax.enterprise.context.Dependent;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
 @Dependent
-public class FacesMessages {
+public class FacesMessages implements Serializable{
 
     public void sucess(String msg) {
         FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR,

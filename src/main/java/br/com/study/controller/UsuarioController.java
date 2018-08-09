@@ -19,7 +19,6 @@ import javax.inject.Named;
 @Named
 @ViewScoped
 public class UsuarioController implements Serializable {
-
     private Usuario usuario;
     private List<Cidade> cidades;
     private List<Estado> estados;
@@ -64,6 +63,16 @@ public class UsuarioController implements Serializable {
     public void setEstados(List<Estado> estados) {
         this.estados = estados;
     }
+
+    public UsuarioDao getUsuarioDao() {
+        return usuarioDao;
+    }
+
+    public void setUsuarioDao(UsuarioDao usuarioDao) {
+        this.usuarioDao = usuarioDao;
+    }
+    
+    
 
     public void carregarCidades() {
         this.cidades = new ArrayList<>();
