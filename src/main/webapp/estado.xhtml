@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      >
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form id="cadastro-estado">
+            <h:panelGrid columns="2">
+                <p:messages />
+                <h:inputHidden value="#{estadoController.estado.id}" />
+                <h:outputLabel value="Nome:" />
+                <p:inputText value="#{estadoController.estado.nome}" />
+                <h:outputLabel value="UF:" />
+                <p:inputText value="#{estadoController.estado.uf}" />
+                <p:commandButton value="Salvar" action="#{estadoController.salvar()}" update=":cadastro-estado :tabela-estado" />
+            </h:panelGrid>
+        </h:form>
+
+        <h:form id="tabela-estado">
+            <p:dataTable value="#{estadoController.dao.listar()}"
+                         var="estado">
+                <p:column headerText="Id">
+                    <h:outputText value="#{estado.id}" />
+                </p:column>
+                <p:column headerText="Nome">
+                    <h:outputText value="#{estado.nome}" />
+                </p:column>
+                <p:column headerText="UF">
+                    <h:outputText value="#{estado.uf}" />
+                </p:column>
+            </p:dataTable>
+        </h:form>
+        
+
+
+    </h:body>
+</html>
+
